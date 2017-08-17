@@ -27,10 +27,8 @@ object Form1: TForm1
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitTop = 464
-    ExplicitWidth = 382
     object Panel6: TPanel
-      Left = 196
+      Left = 188
       Top = 0
       Width = 186
       Height = 35
@@ -69,13 +67,11 @@ object Form1: TForm1
     BevelOuter = bvNone
     BorderWidth = 8
     TabOrder = 1
-    ExplicitWidth = 382
-    ExplicitHeight = 464
     object Panel2: TPanel
       Left = 9
       Top = 9
-      Width = 364
-      Height = 446
+      Width = 356
+      Height = 443
       Align = alClient
       BevelOuter = bvNone
       BorderWidth = 5
@@ -83,23 +79,25 @@ object Form1: TForm1
       object Label1: TLabel
         Left = 5
         Top = 5
-        Width = 351
+        Width = 346
         Height = 16
         Align = alTop
         Caption = 'Select output format. Hold "Ctrl" key to choose multiple lines'
+        ExplicitWidth = 351
       end
       object Label2: TLabel
         Left = 5
         Top = 261
-        Width = 308
+        Width = 346
         Height = 16
         Align = alTop
         Caption = 'Drop folders or *.fb2 files here or use "Add..." buttons'
+        ExplicitWidth = 308
       end
       object Panel3: TPanel
         Left = 5
         Top = 89
-        Width = 354
+        Width = 346
         Height = 172
         Align = alTop
         BevelOuter = bvNone
@@ -108,7 +106,7 @@ object Form1: TForm1
         object GroupBox1: TGroupBox
           Left = 0
           Top = 22
-          Width = 354
+          Width = 346
           Height = 138
           Align = alBottom
           Caption = 'Store output files to:'
@@ -186,7 +184,7 @@ object Form1: TForm1
         object Panel8: TPanel
           Left = 0
           Top = 160
-          Width = 354
+          Width = 346
           Height = 12
           Align = alBottom
           BevelOuter = bvNone
@@ -205,8 +203,8 @@ object Form1: TForm1
       object ListView1: TListView
         Left = 5
         Top = 277
-        Width = 354
-        Height = 123
+        Width = 346
+        Height = 120
         Align = alClient
         Columns = <
           item
@@ -236,8 +234,8 @@ object Form1: TForm1
       end
       object ProgressBar1: TProgressBar
         Left = 5
-        Top = 400
-        Width = 354
+        Top = 397
+        Width = 346
         Height = 11
         Align = alBottom
         TabOrder = 2
@@ -245,8 +243,8 @@ object Form1: TForm1
       end
       object Panel4: TPanel
         Left = 5
-        Top = 411
-        Width = 354
+        Top = 408
+        Width = 346
         Height = 30
         Align = alBottom
         BevelOuter = bvNone
@@ -270,7 +268,7 @@ object Form1: TForm1
           OnClick = Button2Click
         end
         object Panel7: TPanel
-          Left = 269
+          Left = 261
           Top = 0
           Width = 85
           Height = 30
@@ -292,7 +290,7 @@ object Form1: TForm1
       object ListView2: TListView
         Left = 5
         Top = 21
-        Width = 354
+        Width = 346
         Height = 68
         Align = alTop
         Columns = <

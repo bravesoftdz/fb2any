@@ -229,7 +229,7 @@ end;
 procedure TForm1.Button3Click(Sender: TObject);
 var
   DirName:PChar;
-  DialogData:  TBrowseInfoA;
+  DialogData:  TBrowseInfo;
   DirRes:PItemIDList;
   OldCursor:TCursor;
 begin
@@ -524,7 +524,7 @@ end;
 procedure TForm1.Button5Click(Sender: TObject);
 var
   DirName:PChar;
-  DialogData:  TBrowseInfoA;
+  DialogData:  TBrowseInfo;
   DirRes:PItemIDList;
   OldCursor:TCursor;
 begin
