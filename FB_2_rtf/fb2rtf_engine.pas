@@ -1,7 +1,7 @@
 unit fb2rtf_engine;
 
 interface
-uses MSXML,Windows;
+uses MSXML,Windows, pngimage;
 
 type
   TRTFConverter = class
@@ -24,7 +24,7 @@ type
 
 Function ExportDOM(AParent:THandle;DOM:IDispatch;FN:String; SkipImages, SkipCover, SkipDescr, EncCompat, ImgCompat:boolean):HResult;
 implementation
-uses SysUtils, Classes, Variants, Graphics, pngimage, Jpeg;
+uses SysUtils, Classes, Variants, Graphics, Jpeg;
 Type
   TStoreArray=Array of byte;
 
@@ -133,7 +133,7 @@ Var
 
   Function ImgToStr(F:TStream;ImgType:Integer):String;
   Var
-    PNGImg:TPngObject;
+    PNGImg:TPngImage;
     JPegImg:TJPEGImage;
     Graph:TGraphic;
     BMP:TBitmap;
@@ -182,7 +182,7 @@ Var
       Graph:=JpegImg;
     end else if ImgType=PNG then
       Begin
-        PNGImg:=TPngObject.Create;
+        PNGImg:=TPngImage.Create;
         pngImg.LoadFromStream(F);
         Graph:=pngImg
       end else Exit;
