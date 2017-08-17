@@ -1,7 +1,7 @@
 unit fb2lit_engine;
 
 interface
-uses MSXML2_TLB,Windows,LITGen_TLB,ComObj;
+uses MSXML,Windows,LITGen_TLB,ComObj;
 Type
   TFB2LITConverter=class
   Private
