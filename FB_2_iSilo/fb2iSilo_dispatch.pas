@@ -5,7 +5,7 @@ unit fb2iSilo_dispatch;
 interface
 
 uses
-  ComObj, ActiveX, FB2_to_iSilo_TLB, StdVcl,fb2iSilo_engine,MSXML2_TLB,Windows;
+  ComObj, ActiveX, FB2_to_iSilo_TLB, StdVcl,fb2iSilo_engine,MSXML,Windows;
 
 type
   TFB2iSiloExport = class(TAutoObject, IFB2iSiloExport)

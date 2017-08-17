@@ -1,7 +1,7 @@
 unit fb2iSilo_engine;
 
 interface
-uses MSXML2_TLB,Windows,LITGen_TLB,ComObj,extractimages,exec_external;
+uses MSXML,Windows,LITGen,ComObj,extractimages,exec_external;
 Type
   TFB2iSiloConverter=class
   Private

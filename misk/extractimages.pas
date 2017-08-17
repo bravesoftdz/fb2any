@@ -1,6 +1,6 @@
 unit extractimages;
 interface
-Uses MSXML2_TLB,Classes;
+Uses MSXML,Classes;
 
 Type
   TCallBackProc=procedure(message:string;percent:Integer) of object;

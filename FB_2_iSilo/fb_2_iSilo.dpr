@@ -10,7 +10,8 @@ uses
   exec_external in '..\misk\exec_external.pas',
   fb2iSilo_dispatch in 'fb2iSilo_dispatch.pas' {FB2iSiloExport: CoClass},
   QuickExport in 'QuickExport.pas' {FB2AnyQuickExport: CoClass},
-  QuickExportSetup in 'QuickExportSetup.pas' {QuickExportSetupForm};
+  QuickExportSetup in 'QuickExportSetup.pas' {QuickExportSetupForm},
+  LITGen in '..\misk\LITGen.pas';
 
 exports
   DllGetClassObject,

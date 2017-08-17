@@ -16,7 +16,7 @@ Var
   ErrNo,I,NumRead:Integer;
   Msg:PChar;
   E: Exception;
-  Buffer : Pchar;
+  Buffer : PAnsiChar;
   ReadPipe,WritePipe:THandle;
   BytesRead,Apprunning:DWord;
   BufDone,CharCollect:String;
@@ -64,7 +64,7 @@ begin
               Buffer[BytesRead]:= #0;
               OemToAnsi(Buffer,Buffer);
               BufDone:=String(Buffer);
-              OemToChar(PChar(BufDone),PChar(BufDone));
+              OemToChar(PAnsiChar(BufDone),PChar(BufDone));
               I:=1;
               While I< Length(BufDone) do
               Begin
