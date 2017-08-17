@@ -1,7 +1,7 @@
 unit fb2rb_engine;
 
 interface
-uses MSXML2_TLB,Classes,hyph_control,fb2_hyph_TLB,extractimages;
+uses MSXML,Classes,hyph_control,fb2_hyph_TLB,extractimages;
 Type
   TCallBackProc=procedure(message:string;percent:Integer) of object;
   TFB2RBConverterSettings=record
@@ -149,10 +149,10 @@ Begin
   end;
 end;
 
-Function Translit(S:String):String;
+Function Translit(S:String):AnsiString;
 // Переводит русский текст в латиницу, типа latinica
 Const
-  Eng:Array ['А'..'я'] of Char='ABVGDESZIJKLMNOPRSTUFHCCHH''I_AUJabvgdeszijklmnoprstufhcchh''i_avj';
+  Eng:Array ['А'..'я'] of AnsiChar='ABVGDESZIJKLMNOPRSTUFHCCHH''I_AUJabvgdeszijklmnoprstufhcchh''i_avj';
 Var
   I:Integer;
 Begin

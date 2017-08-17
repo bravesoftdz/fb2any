@@ -5,7 +5,7 @@ unit fb2rb_dispatch;
 interface
 
 uses
-  ComObj, ActiveX, FB2_to_RB_TLB, StdVcl,fb2rb_engine,fb2_hyph_TLB,MSXML2_TLB;
+  ComObj, ActiveX, FB2_to_RB_TLB, StdVcl,fb2rb_engine,fb2_hyph_TLB,MSXML;
 
 type
   TFB2RBExport = class(TAutoObject, IFB2RBExport)

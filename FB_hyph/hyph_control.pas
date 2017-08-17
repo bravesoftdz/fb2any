@@ -1,6 +1,6 @@
 unit hyph_control;
 interface
-uses StdCtrls,MSXML2_TLB,fb2_hyph_TLB;
+uses StdCtrls,MSXML,fb2_hyph_TLB;
 type
   THypher=class
   public
@@ -17,7 +17,7 @@ type
 implementation
 constructor THypher.Create;
 Var
-  XD2:TFreeThreadedDOMDocument40;
+  XD2:IXMLDOMDocument;
 Begin
   FontNameBox:=AFontNameBox;
   FontSizeBox:=AFontSizeBox;
@@ -25,11 +25,11 @@ Begin
   FontNameBox.OnChange:=onFontNameChange;
   FontSizeBox.OnChange:=onFontSizeChange;
   DevicePropBox.OnChange:=onDevicePropChange;
-  XD2:=TFreeThreadedDOMDocument40.Create(Nil);
-  XD2.DefaultInterface.preserveWhiteSpace:=True;
-  XD2.DefaultInterface.load(DeviceDescr);
+  XD2:=CoFreeThreadedDOMDocument40.Create();
+  XD2.preserveWhiteSpace:=True;
+  XD2.load(DeviceDescr);
   Hyphenator:=CoFB2Hyphenator.Create;
-  Hyphenator.deviceDescr:=XD2.DefaultInterface;
+  Hyphenator.deviceDescr:=XD2;
   DevicePropBox.Items.Text:=Hyphenator.deviceSizeList;
   DevicePropBox.ItemIndex:=0;
   FontNameBox.Items.Text:='<no hyphenation>'#10+Hyphenator.fontList;

@@ -19,7 +19,7 @@ type
 
 implementation
 
-uses ComServ,registry,fb_2_rb_dialog,MSXML2_TLB,SysUtils;
+uses ComServ,registry,fb_2_rb_dialog,MSXML,SysUtils;
 
 function TFB2_2_RB_FBE_export.Export(hWnd: Integer;
   const filename: WideString; const document: IDispatch): HResult;

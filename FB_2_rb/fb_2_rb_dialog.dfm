@@ -54,7 +54,7 @@ object ExportToRBDialog: TExportToRBDialog
   Scaled = False
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  PixelsPerInch = 120
+  PixelsPerInch = 96
   TextHeight = 16
   object Panel2: TPanel
     Left = 0
@@ -137,10 +137,13 @@ object ExportToRBDialog: TExportToRBDialog
       Height = 349
       ActivePage = TabSheet1
       Align = alClient
-      TabIndex = 0
       TabOrder = 0
       object TabSheet1: TTabSheet
         Caption = 'Document'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Panel6: TPanel
           Left = 0
           Top = 0
@@ -218,7 +221,6 @@ object ExportToRBDialog: TExportToRBDialog
               Width = 276
               Height = 24
               Style = csDropDownList
-              ItemHeight = 16
               ItemIndex = 0
               TabOrder = 0
               Text = 'No table of content'
@@ -253,7 +255,6 @@ object ExportToRBDialog: TExportToRBDialog
               Width = 276
               Height = 24
               Style = csDropDownList
-              ItemHeight = 16
               ItemIndex = 0
               TabOrder = 0
               Text = 'No page-breaks'
@@ -270,7 +271,6 @@ object ExportToRBDialog: TExportToRBDialog
               Width = 138
               Height = 24
               Style = csDropDownList
-              ItemHeight = 16
               TabOrder = 1
             end
             object ComboBox5: TComboBox
@@ -279,7 +279,6 @@ object ExportToRBDialog: TExportToRBDialog
               Width = 64
               Height = 24
               Style = csDropDownList
-              ItemHeight = 16
               TabOrder = 2
             end
             object ComboBox6: TComboBox
@@ -288,7 +287,6 @@ object ExportToRBDialog: TExportToRBDialog
               Width = 76
               Height = 24
               Style = csDropDownList
-              ItemHeight = 16
               TabOrder = 3
             end
           end
@@ -307,7 +305,6 @@ object ExportToRBDialog: TExportToRBDialog
               Height = 24
               Style = csDropDownList
               Enabled = False
-              ItemHeight = 16
               ItemIndex = 0
               TabOrder = 0
               Text = 'Write new books to internal memory'
@@ -321,6 +318,10 @@ object ExportToRBDialog: TExportToRBDialog
       object TabSheet3: TTabSheet
         Caption = 'Log'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object RichEdit1: TRichEdit
           Left = 0
           Top = 0
@@ -346,6 +347,7 @@ object ExportToRBDialog: TExportToRBDialog
           TabOrder = 0
           WantReturns = False
           WordWrap = False
+          Zoom = 100
         end
         object ProgressBar1: TProgressBar
           Left = 0
@@ -353,8 +355,6 @@ object ExportToRBDialog: TExportToRBDialog
           Width = 300
           Height = 22
           Align = alBottom
-          Min = 0
-          Max = 100
           TabOrder = 1
         end
       end

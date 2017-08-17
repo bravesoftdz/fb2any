@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, Menus, StdCtrls, ComCtrls,MSXML2_TLB,hyph_control;
+  Dialogs, ExtCtrls, Menus, StdCtrls, ComCtrls,MSXML,hyph_control;
 
 type
   TExportToRBDialog = class(TForm)
