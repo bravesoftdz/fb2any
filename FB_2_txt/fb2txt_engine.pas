@@ -1,7 +1,7 @@
 unit fb2txt_engine;
 
 interface
-uses MSXML2_TLB, Windows,fb2_hyph_TLB,Classes;
+uses MSXML, Windows,fb2_hyph_TLB,Classes;
 
 Type
   TData= Array of byte;

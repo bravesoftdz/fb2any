@@ -19,7 +19,7 @@ type
 
 implementation
 
-uses ComServ,Registry,save_txt_dialog,SysUtils,fb2txt_engine,MSXML2_TLB;
+uses ComServ,Registry,save_txt_dialog,SysUtils,fb2txt_engine,MSXML;
 
 function TFB2_to_TXT.Export(hWnd: Integer; const filename: WideString;
   const document: IDispatch): HResult;

@@ -42,7 +42,7 @@ type
 
 implementation
 
-uses ComServ,fb2_hyph_TLB,MSXML2_TLB,Dialogs,SysUtils;
+uses ComServ,fb2_hyph_TLB,MSXML,Dialogs,SysUtils;
 
 procedure TFB2TXTExport.AfterConstruction;
 Begin

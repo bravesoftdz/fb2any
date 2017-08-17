@@ -23,7 +23,7 @@ type
 
 implementation
 
-uses ComServ,Windows,QuickExportSetup, Forms,Registry,MSXML2_TLB,fb2_hyph_TLB,
+uses ComServ,Windows,QuickExportSetup, Forms,Registry,MSXML,fb2_hyph_TLB,
 SysUtils,save_txt_dialog;
 
 procedure TFB2AnyQuickExport.AfterConstruction;
