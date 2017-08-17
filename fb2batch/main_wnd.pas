@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ComCtrls, CheckLst, ExtCtrls, ImgList;
+  Dialogs, StdCtrls, ComCtrls, CheckLst, ExtCtrls, ImgList, System.ImageList;
 
 type
   TForm1 = class(TForm)
@@ -74,7 +74,7 @@ const
   RegKey='SOFTWARE\Grib Soft\FB2Batch';
 
 implementation
-uses ShlObj,ShellApi,Registry,CommCtrl,ComObj,MSXML2_TLB,FB2_to_TXT_TLB;
+uses ShlObj,ShellApi,Registry,CommCtrl,ComObj,MSXML,FB2_to_TXT_TLB;
 {$R *.dfm}
 const
   QuickExportGUID:TGUID='{72F1BD3E-8658-4C65-9804-5DCB684BBFE2}';

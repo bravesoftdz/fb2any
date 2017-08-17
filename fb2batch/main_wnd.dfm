@@ -1,9 +1,9 @@
 object Form1: TForm1
   Left = 421
   Top = 207
-  Width = 390
-  Height = 534
   Caption = 'FB2batch v0.2'
+  ClientHeight = 496
+  ClientWidth = 374
   Color = clBtnFace
   Constraints.MinHeight = 450
   Constraints.MinWidth = 390
@@ -17,16 +17,18 @@ object Form1: TForm1
   Scaled = False
   OnClose = FormClose
   OnCreate = FormCreate
-  PixelsPerInch = 120
+  PixelsPerInch = 96
   TextHeight = 16
   object Panel5: TPanel
     Left = 0
-    Top = 464
-    Width = 382
+    Top = 461
+    Width = 374
     Height = 35
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitTop = 464
+    ExplicitWidth = 382
     object Panel6: TPanel
       Left = 196
       Top = 0
@@ -60,13 +62,15 @@ object Form1: TForm1
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 382
-    Height = 464
+    Width = 374
+    Height = 461
     Align = alClient
     BevelInner = bvRaised
     BevelOuter = bvNone
     BorderWidth = 8
     TabOrder = 1
+    ExplicitWidth = 382
+    ExplicitHeight = 464
     object Panel2: TPanel
       Left = 9
       Top = 9
@@ -79,7 +83,7 @@ object Form1: TForm1
       object Label1: TLabel
         Left = 5
         Top = 5
-        Width = 354
+        Width = 351
         Height = 16
         Align = alTop
         Caption = 'Select output format. Hold "Ctrl" key to choose multiple lines'
@@ -87,7 +91,7 @@ object Form1: TForm1
       object Label2: TLabel
         Left = 5
         Top = 261
-        Width = 354
+        Width = 308
         Height = 16
         Align = alTop
         Caption = 'Drop folders or *.fb2 files here or use "Add..." buttons'
@@ -236,8 +240,6 @@ object Form1: TForm1
         Width = 354
         Height = 11
         Align = alBottom
-        Min = 0
-        Max = 100
         TabOrder = 2
         Visible = False
       end
@@ -338,7 +340,7 @@ object Form1: TForm1
     Left = 112
     Top = 40
     Bitmap = {
-      494C010101000400040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010101000400080010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000008F000000000000000000000000
