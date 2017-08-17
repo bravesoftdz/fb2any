@@ -1,0 +1,1 @@
+regsvr32 "D:\Users\user\Documents\Embarcadero\Studio\Projects\fb2any\FB_2_txt\fb_2_txt.dll" 
