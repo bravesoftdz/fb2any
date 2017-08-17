@@ -1,7 +1,7 @@
 unit com;
 {$WARN SYMBOL_PLATFORM OFF}
 interface
-uses ComObj, ActiveX, FB2_hyph_TLB, StdVcl,MSXML2_TLB,Classes;
+uses ComObj, ActiveX, FB2_hyph_TLB, StdVcl,MSXML,Classes;
 
 type
   TCharWidthTable=array of record
