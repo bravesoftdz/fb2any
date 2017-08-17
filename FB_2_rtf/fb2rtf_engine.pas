@@ -1,7 +1,7 @@
 unit fb2rtf_engine;
 
 interface
-uses MSXML2_TLB,Windows;
+uses MSXML,Windows;
 
 type
   TRTFConverter = class

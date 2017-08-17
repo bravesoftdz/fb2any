@@ -19,7 +19,7 @@ type
 
 implementation
 
-uses ComServ,Registry,save_rtf_dialog,MSXML2_TLB,fb2rtf_engine,SySUtils;
+uses ComServ,Registry,save_rtf_dialog,MSXML,fb2rtf_engine,SySUtils;
 
 function TFB2_to_rtf.Export(hWnd: Integer; const filename: WideString;
   const document: IDispatch): HResult;
