@@ -426,7 +426,7 @@ begin
   { Hide any hint windows left behind }
   Application.HideHint;
 end;
-function TOpenPictureDialog.Execute;
+function TOpenPictureDialog.Execute: Boolean;
 Var
   Reg:TRegistry;
 begin
