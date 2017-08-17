@@ -5,7 +5,7 @@ unit fb2lit_dispatch;
 interface
 
 uses
-  ComObj, ActiveX, FB2_to_LIT_TLB, StdVcl,fb2lit_engine,MSXML2_TLB,Windows;
+  ComObj, ActiveX, FB2_to_LIT_TLB, StdVcl,fb2lit_engine,MSXML,Windows;
 
 type
   TFB2LITExport = class(TAutoObject, IFB2LITExport)

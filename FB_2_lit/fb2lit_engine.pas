@@ -1,7 +1,7 @@
 unit fb2lit_engine;
 
 interface
-uses MSXML,Windows,LITGen_TLB,ComObj;
+uses MSXML,Windows,LITGen,ComObj;
 Type
   TFB2LITConverter=class
   Private
@@ -27,7 +27,7 @@ Type
     Procedure WalkTree(Node:IXMLDOMNode;LitParser:ILITParserHost);
   end;
   TMyLITCallback = class(TTypedComObject,ILITCallback)
-    function  Message(iType: Integer; iMessageCode: Integer; pwszMessage: PWideChar): HResult; stdcall;
+    function  &Message(iType: Integer; iMessageCode: Integer; pwszMessage: PWideChar): HResult; stdcall;
   end;
 
   function ExportDOM(document:IDispatch;FileName:String; TocDeep:Integer; SkipImg:Boolean):HResult;
@@ -118,7 +118,7 @@ Var
   IUnc:IUnknown;
   SelectedNode:IXMLDOMNode;
   DocAuth,CurFileName:WideString;
-  I:Integer;
+  I:Boolean;
 
   hr:HResult;
   LitWriter:ILITWriter;
@@ -172,15 +172,15 @@ Begin
   hLitgen:= LoadLibrary(PChar(LibFileName));
   CreateWriter:= GetProcAddress(hLitGen, 'CreateWriter');
   CreateWriter(IUnc);
-  if IUnc.QueryInterface(IID_ILITWriter,LitWriter) <> S_OK then
+  if IUnc.QueryInterface(ILITWriter,LitWriter) <> S_OK then
     Raise Exception.Create('Invalid interface returned from litgen.dll');
   if LitWriter.Create(PWideChar(FN),'c:\',PWideChar(DocAuth),0) <> S_OK then
     Raise Exception.Create('Unable to create file');
   Try
-    I:=0;
+    I:=false;
     LitWriter.SetCallback(CallBack);
     LitWriter.GetPackageHost(I,IUnc);
-    if IUnc.QueryInterface(IID_ILITParserHost,PackageHost) <> S_OK then
+    if IUnc.QueryInterface(ILITParserHost,PackageHost) <> S_OK then
       Raise Exception.Create('Unable to get ILITParserHost interface for Package file!');
 
     XDoc:=CoFreeThreadedDOMDocument40.Create;
@@ -197,7 +197,7 @@ Begin
     LitWriter.GetNextContentHost(IUnc);
     if IUnc=Nil then
       Raise Exception.Create('GetNextContentHost returned nil, lit generation aborted!');
-    if IUnc.QueryInterface(IID_ILITParserHost,ContentHost) <> S_OK then
+    if IUnc.QueryInterface(ILITParserHost,ContentHost) <> S_OK then
       Raise Exception.Create('Unable to get ILITParserHost interface for content file!');
     ContentHost.GetFilename(CurFileName);
     While (CurFileName <> 'file://c:\index.html') do
@@ -205,7 +205,7 @@ Begin
       LitWriter.GetNextContentHost(IUnc);
       if IUnc=Nil then
         Raise Exception.Create('GetNextContentHost returned nil, lit generation aborted!');
-      if IUnc.QueryInterface(IID_ILITParserHost,ContentHost) <> S_OK then
+      if IUnc.QueryInterface(ILITParserHost,ContentHost) <> S_OK then
         Raise Exception.Create('Unable to get ILITParserHost interface for content file!');
       ContentHost.GetFilename(CurFileName);
     end;
@@ -222,7 +222,7 @@ Begin
       Raise Exception.Create('Error '+IntToStr(hr)+' starting image part!');
     While IUnc<>Nil do
     Begin
-      if IUnc.QueryInterface(IID_ILITImageHost,ImageHost) <> S_OK then
+      if IUnc.QueryInterface(ILITImageHost,ImageHost) <> S_OK then
         Raise Exception.Create('Unable to get ILITImageHost interface!');
       ImageHost.GetFilename(CurFileName);
       CurFileName:=Copy(CurFileName,11,MaxInt);
@@ -232,7 +232,7 @@ Begin
         SelectedNode.Set_dataType('bin.base64');
         ImgAsVar:=SelectedNode.nodeTypedValue;
         DynArrayFromVariant(Pointer(TheArr),ImgAsVar,TypeInfo(TStoreArray));
-        hr:=ImageHost.Write(TheArr[0],Length(TheArr),BWritten);
+        hr:=ImageHost.Write(@TheArr[0],Length(TheArr),BWritten);
         if hr <> S_OK then
           Raise Exception.Create('Error storing image '+CurFileName+'!');
 
@@ -307,11 +307,11 @@ Begin
                 end;
   NODE_ELEMENT: Begin
                   LitParser.NewTag(IUnc);
-                  IUnc.QueryInterface(IID_ILITTag,LitNode);
+                  IUnc.QueryInterface(ILITTag,LitNode);
                   IUnc:=Nil;
                   NodeName:=Node.nodeName;
                   PWS:=PWideChar(NodeName);
-                  hr:=LitNode.SetName(NodeName[1],Length(NodeName));
+                  hr:=LitNode.SetName(@NodeName[1],Length(NodeName));
                   if hr <> S_OK then
                     Raise exception.Create(Format('Error 0x%x setting tag attribute %S',[hr,NodeName]));
                   Attrs:=Node.attributes;
@@ -324,12 +324,12 @@ Begin
                       PWS:=PWideChar(NodeName);
                       NodeValue:=Attrs[I].nodeValue;
                       PWS1:=PWideChar(nodeValue);
-                      hr:=LitNode.AddAttribute(NodeName[1],Length(NodeName),nodeValue[1],Length(nodeValue));
+                      hr:=LitNode.AddAttribute(@NodeName[1],Length(NodeName),@nodeValue[1],Length(nodeValue));
                       if hr <> S_OK then
                         Raise exception.Create(Format('Error 0x%x setting tag attribute %S',[hr,NodeName]));
                     end;
                   Child:= Node.firstChild;
-                  LitParser.Tag(LitNode,Integer(CHild <> Nil));
+                  LitParser.Tag(LitNode,CHild <> Nil);
                   if Child<>Nil then
                   Begin
                     Repeat
@@ -350,7 +350,7 @@ Begin
                   PWS:=PWideChar(nodeValue);
                   if nodeValue <>'' then
                   Begin
-                    LitParser.Text(nodeValue[1], length(nodeValue));
+                    LitParser.Text(@nodeValue[1], length(nodeValue));
                     if hr <> S_OK then
                       Raise exception.Create(Format('Error 0x%x entering text %S',[hr,nodeValue]));
                   end;
